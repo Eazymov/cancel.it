@@ -1,0 +1,24 @@
+[ignore]
+
+[include]
+
+[libs]
+
+[lints]
+unclear-type=error
+sketchy-null=error
+sketchy-number=error
+nonstrict-import=error
+deprecated-utility=error
+untyped-type-import=error
+unnecessary-invariant=error
+unsafe-getters-setters=error
+unnecessary-optional-chain=error
+
+[options]
+module.name_mapper='^@' -> '<PROJECT_ROOT>/src'
+
+include_warnings=true
+
+[strict]
+untyped-import
