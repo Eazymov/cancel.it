@@ -1,0 +1,4 @@
+{
+  "*.{js,flow}": ["eslint"],
+  "*.{js,flow,json,,md}": ["prettier --check"]
+}
