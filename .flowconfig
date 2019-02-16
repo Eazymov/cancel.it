@@ -16,6 +16,8 @@ unsafe-getters-setters=error
 unnecessary-optional-chain=error
 
 [options]
+suppress_comment= \\(.\\|\n\\)*\\$ExpectError
+
 module.name_mapper='^@' -> '<PROJECT_ROOT>/src'
 
 include_warnings=true

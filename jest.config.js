@@ -6,7 +6,7 @@ const config = {
   moduleFileExtensions: ['js'],
   testEnvironment: 'node',
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1',
+    '^@$': '<rootDir>/src',
   },
 };
 

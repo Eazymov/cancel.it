@@ -31,9 +31,9 @@ const config = {
     }),
   ],
   output: {
+    file: 'dist/index.min.js',
     format: 'iife',
     name: 'Cancelable',
-    exports: 'named',
     banner,
   },
   external: [...devDependencies],
