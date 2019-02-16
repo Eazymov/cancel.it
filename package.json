@@ -1,0 +1,69 @@
+{
+  "name": "cancel.it",
+  "version": "0.0.0",
+  "description": "Cancelable promise",
+  "main": "cjs/index.js",
+  "module": "es/index.js",
+  "unpkg": "dist/index.min.js",
+  "jsdelivr": "dist/index.min.js",
+  "files": [
+    "cjs/*",
+    "es/*",
+    "LICENSE",
+    "README.md"
+  ],
+  "repository": "git@github.com:Eazymov/cancel.it.git",
+  "keywords": [
+    "promise",
+    "cancel",
+    "cancelable"
+  ],
+  "author": {
+    "name": "Eduard Troshin",
+    "email": "eazymovcode@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Eazymov/cancel.it/issues"
+  },
+  "homepage": "https://github.com/Eazymov/cancel.it#readme",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.13.0",
+    "eslint-plugin-flowtype": "^3.4.2",
+    "flow-bin": "0.92.1",
+    "flow-copy-source": "^2.0.3",
+    "flow-coverage-report": "^0.6.1",
+    "husky": "^1.3.1",
+    "jest": "^24.1.0",
+    "lint-staged": "^8.1.4",
+    "prettier": "^1.16.4",
+    "rollup": "^1.1.2",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-uglify": "^6.0.2"
+  },
+  "scripts": {
+    "build": "yarn build:cjs && yarn build:es && yarn build:iife",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir cjs && flow-copy-source src cjs",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es && flow-copy-source src es",
+    "build:iife": "cross-env BABEL_ENV=iife rollup -c -o dist/Cancelable.min.js",
+    "prettier": "prettier \"./**/*.{js,flow,json,md}\"",
+    "prettier:check": "yarn prettier --check",
+    "prettier:write": "yarn prettier --write",
+    "flow:check": "flow check",
+    "flow:restart": "flow stop && flow start",
+    "flow:coverage": "flow-coverage-report --config flow-coverage.json",
+    "lint": "yarn lint:js",
+    "lint:js": "eslint \"src/**/*.js\"",
+    "lint:staged": "lint-staged",
+    "test": "yarn test:unit",
+    "test:unit": "BABEL_ENV=test jest",
+    "test:watch": "yarn test:unit --watch",
+    "test:coverage": "BABEL_ENV=test jest --coverage"
+  }
+}
