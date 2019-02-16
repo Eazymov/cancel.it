@@ -1,9 +1,7 @@
 /* @flow strict */
-export type Resolve<R> = (result: R) => void;
-export type Reject = (thrown: mixed) => void;
-export type Callback<R> = (resolve: Resolve<R>, reject: Reject) => mixed;
+import type { Tokens, Reject, Resolve, Callback } from './types';
 
-const canceledTokens: { [key: string]: void | boolean } = {};
+const canceledTokens: Tokens = {};
 
 let lastToken = 0;
 
