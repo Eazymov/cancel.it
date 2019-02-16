@@ -1,5 +1,5 @@
 /* @flow strict */
-import Cancelable, { type Callback } from '@/Cancelable';
+import Cancelable, { type Callback } from '@';
 
 function throwCallback() {
   throw new Error("Shouldn't be fired");
