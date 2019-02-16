@@ -33,6 +33,7 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-flow": "^7.0.0",
     "babel-eslint": "^10.0.1",
+    "copyfiles": "^2.1.0",
     "cross-env": "^5.2.0",
     "eslint": "^5.13.0",
     "eslint-plugin-flowtype": "^3.4.2",
@@ -45,25 +46,29 @@
     "prettier": "^1.16.4",
     "rollup": "^1.1.2",
     "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-uglify": "^6.0.2"
+    "rollup-plugin-uglify": "^6.0.2",
+    "typescript": "^3.3.3"
   },
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:iife",
-    "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir cjs && flow-copy-source src cjs",
-    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es && flow-copy-source src es",
-    "build:iife": "cross-env BABEL_ENV=iife rollup -c -o dist/Cancelable.min.js",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir cjs && flow-copy-source src cjs && yarn build:ts cjs",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es && flow-copy-source src es && yarn build:ts es",
+    "build:iife": "cross-env BABEL_ENV=iife rollup -c",
+    "build:ts": "copyup \"src/*.d.ts\"",
     "prettier": "prettier \"./**/*.{js,flow,json,md}\"",
     "prettier:check": "yarn prettier --check",
     "prettier:write": "yarn prettier --write",
-    "flow:check": "flow check",
     "flow:restart": "flow stop && flow start",
     "flow:coverage": "flow-coverage-report --config flow-coverage.json",
     "lint": "yarn lint:js",
     "lint:js": "eslint \"src/**/*.js\"",
     "lint:staged": "lint-staged",
-    "test": "yarn test:unit",
+    "test": "yarn test:unit && yarn test:types",
     "test:unit": "BABEL_ENV=test jest",
     "test:watch": "yarn test:unit --watch",
-    "test:coverage": "BABEL_ENV=test jest --coverage"
+    "test:coverage": "BABEL_ENV=test jest --coverage",
+    "test:types": "yarn test:types:ts && yarn test:types:flow",
+    "test:types:ts": "tsc -p test/types/typescript/tsconfig.json",
+    "test:types:flow": "flow check"
   }
 }
