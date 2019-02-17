@@ -5,6 +5,8 @@
 [![Build Status](https://travis-ci.org/Eazymov/cancel.it.svg?branch=master)](https://travis-ci.org/Eazymov/cancel.it)
 [![Coverage Status](https://coveralls.io/repos/github/Eazymov/cancel.it/badge.svg?branch=master)](https://coveralls.io/github/Eazymov/cancel.it?branch=master)
 ![types: typescript/flow](https://img.shields.io/badge/types-typescript%2Fflow-blue.svg)
+![](https://img.shields.io/bundlephobia/min/cancel.it.svg?style=flat)
+![](https://img.shields.io/bundlephobia/minzip/cancel.it.svg?style=flat)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Eazymov/cancel.it/pulls)
 
