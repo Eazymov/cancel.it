@@ -26,7 +26,7 @@ function wrapAction<A>(handler: A => void, token: string): A => void {
 }
 
 class Cancelable<R> extends Promise<R> {
-  static from<R>(promise: Promise<R>): Cancelable<R> {
+  static from<_R>(promise: Promise<_R>): Cancelable<_R> {
     return new Cancelable((resolve, reject) => {
       promise.then(resolve).catch(reject);
     });

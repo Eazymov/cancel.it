@@ -1,7 +1,7 @@
 import { Callback } from './types.d';
 
 declare class Cancelable<R> extends Promise<R> {
-  public static from<T>(promise: Promise<T>): Cancelable<T>;
+  public static from<_R>(promise: Promise<_R>): Cancelable<_R>;
 
   public readonly token: string;
 
