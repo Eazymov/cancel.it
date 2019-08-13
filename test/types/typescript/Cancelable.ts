@@ -8,8 +8,26 @@ promise = new Promise(() => {});
 
 let cancelable: Cancelable<void> = Cancelable.from(promise);
 
-cancelable.then((res: void) => res);
+cancelable.cancel();
+cancelable.isCanceled();
 
-cancelable.catch((thrown: unknown) => thrown);
+cancelable.then((res: void) => res).cancel();
+cancelable.then((res: void) => res).isCanceled();
 
-cancelable.finally(() => {});
+cancelable.catch((thrown: unknown) => thrown).cancel();
+cancelable.catch((thrown: unknown) => thrown).isCanceled();
+
+cancelable.finally(() => {}).cancel();
+cancelable.finally(() => {}).isCanceled();
+
+Cancelable.resolve().cancel();
+Cancelable.resolve().isCanceled();
+
+Cancelable.reject().cancel();
+Cancelable.reject().isCanceled();
+
+Cancelable.all([]).cancel();
+Cancelable.all([]).isCanceled();
+
+Cancelable.race([]).cancel();
+Cancelable.race([]).isCanceled();
