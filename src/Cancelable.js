@@ -25,8 +25,8 @@ function wrapAction<A>(handler: A => void, token: string): A => void {
   };
 }
 
-class Cancelable<R> extends Promise<R> {
-  static from<_R>(promise: Promise<_R>): Cancelable<_R> {
+class Cancelable<T> extends Promise<T> {
+  static from<T>(promise: Promise<T>): Cancelable<T> {
     return new Cancelable((resolve, reject) => {
       promise.then(resolve).catch(reject);
     });
@@ -34,12 +34,12 @@ class Cancelable<R> extends Promise<R> {
 
   +token: string;
 
-  constructor(callback: Callback<R>) {
+  constructor(callback: Callback<T>) {
     const token = getToken();
 
     canceledTokens[token] = false;
 
-    super((resolve: Resolve<R>, reject: Reject) => {
+    super((resolve: Resolve<T>, reject: Reject) => {
       callback(wrapAction(resolve, token), wrapAction(reject, token));
     });
 
