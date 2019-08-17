@@ -53,10 +53,10 @@
   },
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:iife",
-    "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir cjs && flow-copy-source src cjs && yarn build:ts cjs",
-    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es && flow-copy-source src es && yarn build:ts es",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir cjs && yarn build:types cjs",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es && yarn build:types es",
     "build:iife": "cross-env BABEL_ENV=iife rollup -c",
-    "build:ts": "copyup \"src/*.d.ts\"",
+    "build:types": "copyup \"src/*.d.ts\" \"src/*.flow\"",
     "prettier": "prettier \"./**/*.{js,flow,json,md}\"",
     "prettier:check": "yarn prettier --check",
     "prettier:write": "yarn prettier --write",
