@@ -1,6 +1,6 @@
 {
   "name": "cancel.it",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Cancelable promise",
   "main": "cjs/index.js",
   "module": "es/index.js",
