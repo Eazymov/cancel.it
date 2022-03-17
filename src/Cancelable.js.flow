@@ -3,7 +3,7 @@
 declare export default class Cancelable<R> extends Promise<R> {
   static from<T>(promise: Promise<T>): Cancelable<T>;
 
-  static resolve<T>(object: Promise<T> | T): Cancelable<T>;
+  static resolve<T>(value: Promise<T> | T): Cancelable<T>;
 
   // flowlint-next-line unclear-type:off
   static reject<T>(error: any): Cancelable<T>;

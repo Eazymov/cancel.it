@@ -1,9 +1,3 @@
-type Resolve<R> = (result: R) => void;
-
-type Reject = (thrown: unknown) => void;
-
-type Callback<R> = (resolve: Resolve<R>, reject: Reject) => unknown;
-
 declare class Cancelable<T> extends Promise<T> {
   static readonly prototype: Cancelable<any>;
 
